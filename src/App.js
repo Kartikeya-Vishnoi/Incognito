@@ -1,21 +1,41 @@
 import React from "react";
-import Navbar from "./components/Navbar";
-import About from "./components/About";
-import Hero from "./components/Hero";
-import Testimonials from "./components/Testimonials";
-import Demo from "./components/Demo";
-import Footer from "./components/Footer";
+import { Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "./store/AuthContext";
+import UserForm from "./Login_Components/UserForm";
+import UserHome from "./Login_Components/UserHome";
+import Login from "./Login_Components/Login";
+import SignUp from "./Login_Components/SignUp";
+import Home from "./components/Home/Home";
 
 function App() {
+  const currentuser = useContext(AuthContext);
+  const RequireAuth = ({ children }) => {
+    return currentuser ? children : <Navigate to="/login" />;
+  };
+
   return (
-    <>
-   <Navbar />
-   <Hero />
-   <About />
-   <Testimonials/>
-   {/* <Demo /> */}
-   <Footer />
-    </>
+    <Router>
+      <div>
+        <section>
+          <Routes>
+            <Route
+              path="/userhome"
+              element={
+                <RequireAuth>
+                  <UserHome />
+                </RequireAuth>
+              }
+            />
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/userform" element={<UserForm />} />
+            <Route path="/" element={<Home />} />
+          </Routes>
+        </section>
+      </div>
+    </Router>
   );
 }
 

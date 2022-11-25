@@ -1,13 +1,14 @@
 import React, { useState } from 'react'
 import { FaBars, FaTimes } from 'react-icons/fa'
 import logo from './images/logo2.jpg'
-
+import { useNavigate } from 'react-router-dom'
 import './Navbar.css'
 
 const Navbar = () => {
 
     const [click, setClick] = useState(false)
     const handleClick = () => setClick(!click)
+    const navigate=useNavigate()
 
     const closeMenu = () => setClick(false)
 
@@ -32,7 +33,7 @@ const Navbar = () => {
                     <li className='nav-item'>
                         <a href='#testimonials' onClick={closeMenu}>Testimonials</a>
                     </li>
-                    <li className='nav-item'>
+                    <li className='nav-item' onClick={() => {navigate("/login")}}>
                         <a href=''>Log in</a>
                     </li>
                 </ul>

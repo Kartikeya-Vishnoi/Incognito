@@ -1,0 +1,59 @@
+.login{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    top: 30px;
+    flex-direction: column;
+}
+
+.login form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    top:30px
+
+}
+.login input{
+    width: 200px;
+    height: 30px;
+    margin: 10px;
+
+}
+
+
+.login button{
+    background-color: rgb(75, 15, 131);
+    color: white;
+    font-weight: bold;
+    width: 200px;
+    height: 30px;
+}
+.warning{
+    color: red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.signup{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.signup button{
+    position: relative;
+    top:96px;
+    background-color: rgb(75, 15, 131);
+    color: white;
+    font-weight: bold;
+    width: 200px;
+    height: 30px;
+}
+
+.login p{
+    position: relative;
+    top:60px;
+}
