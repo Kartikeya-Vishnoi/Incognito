@@ -18,6 +18,7 @@ function UserHome() {
       });
   }
   const [username, setUsername] = useState();
+  const [userpitch, SetUserpitch] = useState(null);
   let users = [];
   useEffect(() => {
     const fetchdata = async () => {
@@ -28,27 +29,30 @@ function UserHome() {
           list.push(doc.data());
         });
         users = list;
-        console.log(list);
         const auth = getAuth();
         const user = auth.currentUser;
         const name = users.filter(function (el) {
-          return el.uid == user.uid;
+          return el.uid === user.uid;
         });
-
+        
         setUsername(name[0].Name);
+        SetUserpitch(name[0].pitchUrl)
       } catch (err) {
         console.log(err);
       }
     };
     fetchdata();
   }, []);
+  console.log(userpitch);
   const navigate = useNavigate();
-
   return (
     <div className={classes.style}>
       <header>
         <nav>
           <ul>
+          <li onClick={() => {navigate("/vclist")}}>
+              Explore VC's
+            </li>
             <li>
               Update Profile
             </li>
@@ -57,13 +61,21 @@ function UserHome() {
             >
               LogOut
             </li>
-            <li>
-              <a href="#">About Us</a>
+            <li onClick={() => {navigate("/events")}}>
+              Event Tracker
             </li>
           </ul>
         </nav>
       </header>
       <h1>{`Welcome ${username}`}</h1>
+      <br></br>
+      {
+       userpitch===null ? "Loading" 
+       : 
+      <video width="750" height="500" controls autoPlay >
+        <source src={userpitch} type="video/mp4" />
+        </video>
+      }
     </div>
   );
 }

@@ -1,0 +1,28 @@
+
+.messages_user{
+    display: inline-block;
+    background-color: rgb(56, 185, 142);
+    margin: 15px;
+    margin-left: 80vw;
+    width: 250px;
+    color: white;
+    padding: 5px;
+    border-radius: 10px;
+    border-bottom-right-radius:0px ;
+    align-self: flex-end;
+    overflow-wrap:break-word ;
+    
+}
+
+.messages_user.sec{
+    display: inline-block;
+    background-color: rgb(142, 164, 157);
+    margin: 15px;
+    color: white;
+    padding: 5px;
+    border-radius: 10px;   
+    position: relative;
+    width: 250px;
+    overflow-wrap: break-word;
+    border-bottom-left-radius:0px ;
+}

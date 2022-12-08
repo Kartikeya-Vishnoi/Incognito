@@ -55,26 +55,36 @@
 .hero .button {
     margin-top: 29px;
     margin-left: 10px;
-    width: 300px;
-    background-color: var(--secondary-color);
-    border: 1px solid var(--secondary-color);
-    color: #333;
+    width: 150px;
+    height: 2.5rem;
+    background-color: #040002;
+    color: rgba(233, 227, 227, 0.971);
+    border-radius: 10px;
+    font: inherit;
+    font-weight: 600;
 }
 
-.hero .button:hover {
-    background-color: var(--secondary-dark);
-    border: 1px solid var(--secondary-dark);
-}
-
-@media screen and (max-width:940px) {
-    .hero .content p:nth-child(3) {
-        font-size: 2.6rem;
-    }
-
-    .hero .content p:nth-child(4) {
-        font-size: 1.6rem;
-    }
-}
+.actions {
+    padding: 1.5rem;
+    text-align: center;
+  }
+  
+  .actions button {
+    font: inherit;
+    cursor: pointer;
+    color: #77002e;
+    border: 1px solid #77002e;
+    background-color: transparent;
+    padding: 0.5rem 1.5rem;
+    border-radius: 4px;
+  }
+  
+  .hero button:hover,
+  .hero button:active {
+    background-color: #040002;
+    color: white;
+    cursor: pointer;
+  }
 
 
 

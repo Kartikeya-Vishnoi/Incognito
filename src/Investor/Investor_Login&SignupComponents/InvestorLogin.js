@@ -1,11 +1,11 @@
 import React, { useState,useContext } from "react";
-import classes from "./Login.module.css";
+import classes from "./InvestorLogin.module.css";
 import {signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../FireBase";
+import { auth } from "../../FireBase";
 import {useNavigate } from "react-router-dom";
-import { AuthContext } from "../store/AuthContext";
+import { AuthContext } from "../../store/AuthContext";
 
-function LogIn() {
+function InvestorLogIn() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -20,9 +20,10 @@ function LogIn() {
         // Signed in
         const user = userCredential.user;
         dispatch({type:"LOGIN", payload:user})
-        navigate("/userhome")
+        navigate("/investorhome")
       })
       .catch((error) => {
+        console.log(error)
         SetError(true)
       });
   };
@@ -65,4 +66,4 @@ function LogIn() {
     </React.Fragment>
   );
 }
-export default LogIn;
+export default InvestorLogIn;
