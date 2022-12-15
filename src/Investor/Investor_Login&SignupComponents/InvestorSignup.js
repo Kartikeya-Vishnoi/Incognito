@@ -19,6 +19,7 @@ try{
         await setDoc(doc(db,"userChats",res.user.uid),{})  
     )
     .then(
+        await setDoc(doc(db,"userChats",res.user.uid), {}),
         navigate("/")
     )
     
