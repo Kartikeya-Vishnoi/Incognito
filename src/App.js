@@ -20,33 +20,87 @@ import LoginSwitch from "./components/LoginSwitch";
 import InvestorHome from "./Investor/InvestorHome";
 
 function App() {
-  const currentuser = useContext(AuthContext);
+  const { currentUser } = useContext(AuthContext);
   const RequireAuth = ({ children }) => {
-    return currentuser ? children : <Navigate to="/" />;
+    return currentUser ? children : <Navigate to="/login" />;
   };
+  console.log(currentUser)
 
   return (
     <Router>
       <div>
         <section>
           <Routes>
-            <Route path="/entrepreneurhome"element={<RequireAuth><UserHome /></RequireAuth>} />
-            <Route path="/investorhome"element={<RequireAuth><InvestorHome /></RequireAuth>} />
+            <Route
+              path="/entrepreneurhome"
+              element={
+                <RequireAuth>
+                  <UserHome />
+                </RequireAuth>
+              }
+            />
+            <Route
+              path="/investorhome"
+              element={
+                <RequireAuth>
+                  <InvestorHome />
+                </RequireAuth>
+              }
+            />
             <Route path="/entrepreneursignup" element={<SignUp />} />
             <Route path="/investorsignup" element={<InvestorSignUp />} />
-            <Route path="/login" element={<LoginSwitch/>} />
-            <Route path="/entrepreneurlogin" element={<EntrepreneurLogIn/>} />
-            <Route path="/investorlogin" element={<InvestorLogIn/>} />
+            <Route path="/login" element={<LoginSwitch />} />
+            <Route path="/entrepreneurlogin" element={<EntrepreneurLogIn />} />
+            <Route path="/investorlogin" element={<InvestorLogIn />} />
             <Route path="/investorhome" element={<InvestorHome />} />
-            <Route path="/chat" element={<RequireAuth><Chat /></RequireAuth>} />
-            <Route path="/events" element={<RequireAuth><Events/></RequireAuth>}/>
-            <Route path="/" element={<RequireAuth><Home /></RequireAuth>} />
-            <Route path="/allmeetups" element={<RequireAuth><AllMeetups/></RequireAuth>} />
-            <Route path="/new-meetup" element={<RequireAuth><NewMeetups /></RequireAuth>} />
-            <Route path="/vclist" element={<InvestorList/>} />
-            <Route path="/favorites" element={<RequireAuth><FavouriteMeetups/></RequireAuth>} />
-            <Route path="/who_r_u" element={<Navigator/>}></Route>
-
+            <Route
+              path="/chat"
+              element={
+                <RequireAuth>
+                  <Chat />
+                </RequireAuth>
+              }
+            />
+            <Route
+              path="/events"
+              element={
+                <RequireAuth>
+                  <Events />
+                </RequireAuth>
+              }
+            />
+            <Route
+              path="/"
+              element={
+                  <Home />
+              }
+            />
+            <Route
+              path="/allmeetups"
+              element={
+                <RequireAuth>
+                  <AllMeetups />
+                </RequireAuth>
+              }
+            />
+            <Route
+              path="/new-meetup"
+              element={
+                <RequireAuth>
+                  <NewMeetups />
+                </RequireAuth>
+              }
+            />
+            <Route path="/vclist" element={<RequireAuth><InvestorList /></RequireAuth>} />
+            <Route
+              path="/favorites"
+              element={
+                <RequireAuth>
+                  <FavouriteMeetups />
+                </RequireAuth>
+              }
+            />
+            <Route path="/who_r_u" element={<Navigator />}></Route>
           </Routes>
         </section>
       </div>

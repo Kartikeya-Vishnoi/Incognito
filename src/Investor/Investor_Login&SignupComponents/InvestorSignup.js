@@ -14,7 +14,11 @@ try{
         ...data,
         timestamp:serverTimestamp(),
         id:res.user.uid
-    }).then(
+    }
+    ).then(
+        await setDoc(doc(db,"userChats",res.user.uid),{})  
+    )
+    .then(
         navigate("/")
     )
     

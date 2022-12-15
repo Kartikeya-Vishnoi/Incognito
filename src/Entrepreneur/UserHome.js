@@ -4,13 +4,17 @@ import { getAuth, signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { db } from "../FireBase";
 import classes from "./UserHome.module.css";
+import { AuthContext } from "../store/AuthContext";
 
 function UserHome() {
+  const {dispatch}=useContext(AuthContext)
+
   function Signout(){
-    //const navigate = useNavigate();
+  
     const auth = getAuth();
     signOut(auth)
       .then(() => {
+        dispatch({type:"LOGIN", payload:auth.currentUser})
         navigate("/")
       })
       .catch((error) => {
