@@ -10,24 +10,28 @@ import { getAuth } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import Card from "../Event Tracker/ui/Card";
 import classes from "./InvestorItem.module.css";
+import { AuthContext } from "../store/AuthContext";
+import { useContext } from "react";
 
 function InvestorItem(props) {
   const navigate = useNavigate();
   const auth = getAuth();
-  const currentUser = auth.currentUser;
+  const {currentUser}=useContext(AuthContext)
+  console.log(currentUser);
+  const currentuser = auth.currentUser;
 
   async function chathandler() {
     const combinedId =
-      currentUser.uid > props.id
-        ? currentUser.uid + props.id
-        : props.id + currentUser.uid;
+      currentuser.uid > props.id
+        ? currentuser.uid + props.id
+        : props.id + currentuser.uid;
 
     try {
       const res = await getDoc(doc(db, "chats", combinedId));
       if (!res.exists()) {
         await setDoc(doc(db, "chats", combinedId), { messages: [] });
 
-        await updateDoc(doc(db, "userChats", currentUser.uid), {
+        await updateDoc(doc(db, "userChats", currentuser.uid), {
           [combinedId + ".userInfo"]: {
             uid: props.id,
           },
@@ -36,7 +40,7 @@ function InvestorItem(props) {
 
         await updateDoc(doc(db, "userChats", props.id), {
           [combinedId + ".userInfo"]: {
-            uid: currentUser.uid,
+            uid: currentuser.uid,
           },
           [combinedId + ".date"]: serverTimestamp(),
         });
@@ -44,6 +48,7 @@ function InvestorItem(props) {
     } catch (error) {
       console.log(error)
     }
+    navigate("/chat")
   }
 
   return (

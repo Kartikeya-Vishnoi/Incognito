@@ -1,4 +1,5 @@
-import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
+import { collection, onSnapshot, orderBy, query, doc } from "firebase/firestore";
+import { getAuth } from "firebase/auth";
 import { useState, useEffect } from "react";
 import Message from "./Message";
 import { db } from "../FireBase";
@@ -6,28 +7,28 @@ import SendMessage from "./SendMessage";
 
 function Chat() {
   const [messages, setMessages] = useState([]);
+  const[chats,setChats]=useState([]);
+  const auth = getAuth();
+  const currentUser = auth.currentUser;
   //const scroll = useRef()
   useEffect(() => {
-    const q = query(collection(db, "messages"), orderBy("timestamp"));
-    const unsubscribe = onSnapshot(q, (querySnapshot) => {
-      let Messages = [];
-      querySnapshot.forEach((doc) => {
-        console.log(doc.data.text);
-        Messages.push({ ...doc.data(), id: doc.id });
-        //console.log(doc)
-      });
-      setMessages(Messages);
-      console.log(Messages[1].text);
+    const getChats= () => {
+    const unsub=onSnapshot(doc(db,"userChats",currentUser.uid),(doc) =>{
+      setChats(doc.data());
     });
-    return () => unsubscribe();
-  }, []);
-  //console.log(messages.length);
+    return () => {
+      unsub();
+    };
+  }
+  currentUser.uid && getChats()
+  }, [currentUser.uid]);
+  console.log(Object.entries(chats));
   return (
     <div>
-      {messages.map((message) => (
+      {/* {messages.map((message) => (
         <Message id={message.uid} message={message.text} />
       ))}
-        <SendMessage/>
+        <SendMessage/> */}
     </div>
   );
 }
