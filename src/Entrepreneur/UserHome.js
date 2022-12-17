@@ -22,7 +22,13 @@ function UserHome() {
       });
   }
   const [username, setUsername] = useState();
-  const [userpitch, SetUserpitch] = useState(null);
+  const [userpitch, setUserpitch] = useState(null);
+  const [userBusinessType,  setUserBuisnessType] = useState(null);
+  const [userCompanyInfo, setCompanyInfo] = useState(null);
+  const [userStartUpName, setStartUpName] = useState(null);
+  const [userTimeStamp, setTimeStamp] = useState(null);
+  const [userEmail, setUserEmail] = useState(null);
+  
   let users = [];
   useEffect(() => {
     const fetchdata = async () => {
@@ -40,7 +46,13 @@ function UserHome() {
         });
         
         setUsername(name[0].Name);
-        SetUserpitch(name[0].pitchUrl)
+        setUserpitch(name[0].pitchUrl);
+        setUserBuisnessType(name[0].Buisnesstype)
+        setCompanyInfo(name[0].CompanyInfo)
+        setStartUpName(name[0].StartupName)
+        setTimeStamp(name[0].timestamp)
+        setUserEmail(name[0].Email)
+
       } catch (err) {
         console.log(err);
       }
@@ -71,15 +83,34 @@ function UserHome() {
           </ul>
         </nav>
       </header>
-      <h1>{`Welcome ${username}`}</h1>
-      <br></br>
+
+   <div className={classes.container}>
+      <div className={classes.video}>
       {
        userpitch===null ? "Loading" 
        : 
-      <video width="750" height="500" controls autoPlay >
+      <video  controls autoPlay >
         <source src={userpitch} type="video/mp4" />
         </video>
       }
+      </div>
+
+      <div className={classes.details}>
+        <ul>
+          <h2>DETAILS REGARDING PITCH</h2>
+          <br></br>
+          <li><h3>ENTERPRENUER NAME:</h3>{` ${username}`}</li>
+          <li><h3>ENTERPRENUER EMAIL:</h3>{` ${username}`}</li>
+       <li><h3>BUSINESS TYPE:</h3>{` ${userBusinessType}`}</li>
+     <li><h3>STARTPUP INORMATION:</h3>{`${userCompanyInfo}`}</li>
+     <li><h3>STARTUP NAME:</h3>{` ${userStartUpName}`}</li>
+     <li><h3>TIME INFO:</h3>{` ${userTimeStamp}`}</li>
+        </ul>
+    
+      </div>
+   </div>
+     
+
     </div>
   );
 }

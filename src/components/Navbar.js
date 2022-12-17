@@ -14,21 +14,27 @@ const Navbar = () => {
 
     return (
         <div className='header'>
-            <nav className='navbar'>
-                <a href='/' className='logo'>
-                    <img src={logo} alt='logo' />
-                </a>
-                <div className='hamburger' onClick={handleClick}>
+            {/* <nav className='navbar'> */}
+                    {/* <a href='/' className='logo'>
+                        <img src={logo} alt='logo' />
+                    </a> */}
+                {/* <div className='hamburger' onClick={handleClick}>
                     {click ? (<FaTimes size={30} style={{ color: '#ffffff' }} />)
                         : (<FaBars size={30} style={{ color: '#ffffff' }} />)}
 
-                </div>
+                </div> */}
+
+            <div className='compname'>
+                <h1>ONICORN</h1>
+            </div>
+
+                <div>
                 <ul className={click ? "nav-menu active" : "nav-menu"}>
                     <li className='nav-item'>
                         <a href='/' onClick={closeMenu}>Home</a>
                     </li>
                     <li className='nav-item'>
-                        <a href='#about' onClick={closeMenu}>About</a>
+                        <a href='/about' onClick={closeMenu}>About</a>
                     </li>
                     <li className='nav-item'>
                         <a href='#testimonials' onClick={closeMenu}>Testimonials</a>
@@ -37,7 +43,8 @@ const Navbar = () => {
                         <a href=''>Log in</a>
                     </li>
                 </ul>
-            </nav>
+                </div>
+            {/* </nav> */}
         </div>
     )
 }

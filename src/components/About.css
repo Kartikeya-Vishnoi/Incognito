@@ -1,0 +1,30 @@
+.heading{
+    text-align: center;
+    font-weight: bold;
+    font-size: 80px;
+    margin-top: 90px;
+    background-color: grey;
+}
+
+.about{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 200px;
+    padding-top: 100px;
+    background-color: grey;
+}
+
+.photo{
+    border: 5px solid black;
+}
+
+.info{
+    margin-right: 150px;
+    font-size: 25px;
+    margin-top: 180px;
+    width: 40%;
+    display: flex;
+    flex-wrap: wrap;
+    font-weight: 500;
+}

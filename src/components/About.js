@@ -1,22 +1,32 @@
-import React from 'react'
-import john from './images/john-doe.png'
-import classes from './About.module.css'
+import React from "react";
+import aboutimg from "./images/about.jpeg";
+import "./About.css";
+import Navbar from "./Navbar";
 
 const About = () => {
-    return (
-        <div className={classes.about} id='about'>
-            <div className={classes.container}>
-                <img src={john} alt='john' />
-                <div className={classes.col-2}>
-                    <h2>About</h2>
-                    <span className='line'></span>
-                    <p>Intense is an International Financial Planning company with offices i n multiple jurisdictions over the world. Working with Intense gives me the ability to advise internat ional expatriates living in the middle east from where I live in USA.</p>
-                    <p>I am John Doe, a senior advisor for an independently owned financial planning company called Intense.</p>
-                    <button className={classes.button}>Explore More</button>
-                </div>
-            </div>
-        </div>
-    )
-}
+  return (
+    <>
+    <Navbar />
+    <div className="heading">
+        What do we Do?
+    </div>
+    <div className="about">
+      <div className="photo">
+        <img src={aboutimg} height="500px" width="600px"/>
+      </div>
+      <div className="info">
+        <p>
+          There are still blomming ideas in Idea that are not able to find
+          assistance financially and morally.. Ideas that can serve humanity.
+          16% of ideas are not implemented due to lack of Capitals... There are
+          Investors and VC's out there that are willing to provide a helping
+          hand and capitalize on these many deserving ideas that can give Indian
+          Economy a boom.
+        </p>
+      </div>
+    </div>
+    </>
+  );
+};
 
-export default About
+export default About;

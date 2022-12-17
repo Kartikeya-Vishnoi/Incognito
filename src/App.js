@@ -19,6 +19,7 @@ import InvestorLogIn from "./Investor/Investor_Login&SignupComponents/InvestorLo
 import LoginSwitch from "./components/LoginSwitch";
 import InvestorHome from "./Investor/InvestorHome";
 import EntrepreneurList from "./Entrepreneur/Entrepreneur List/Entrepreneur-list";
+import About from "./components/About";
 
 function App() {
   const { currentUser } = useContext(AuthContext);
@@ -92,6 +93,7 @@ function App() {
                 </RequireAuth>
               }
             />
+            <Route path="/about" element={<About />} />
             <Route path="/vclist" element={<RequireAuth><InvestorList /></RequireAuth>} />
             <Route path="/entlist" element={<RequireAuth><EntrepreneurList /></RequireAuth>} />
             <Route

@@ -52,3 +52,46 @@
     margin: 15px;
     cursor: pointer;
 }
+
+video{
+    height: 400px;
+    width: 400px;
+margin-left: 200px;
+margin-top: 70px;   
+border: 4px solid black;
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* align-items: center; */
+}
+
+.details {
+    display: inline;
+    text-decoration: none;
+    list-style: none;
+    margin-top: 60px;
+    margin-right: 400px;
+    margin-left: 60px;
+}
+
+.details ul li{
+    list-style: none;
+    padding: 10px;
+    margin-left: 50px;
+    color: black;
+    font-weight: 300;
+    font-size: larger;
+}
+
+.details h2{
+font-size: xx-large;
+text-decoration: overline;
+text-decoration: underline;
+}
+
+.details ul li h3{
+    color: rgb(26, 0, 128)
+}
