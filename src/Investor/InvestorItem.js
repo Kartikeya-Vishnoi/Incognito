@@ -4,6 +4,7 @@ import {
   doc,
   updateDoc,
   serverTimestamp,
+  arrayUnion
 } from "firebase/firestore";
 import {db} from "../FireBase";
 import { getAuth } from "firebase/auth";
@@ -12,6 +13,7 @@ import Card from "../Event Tracker/ui/Card";
 import classes from "./InvestorItem.module.css";
 import { AuthContext } from "../store/AuthContext";
 import { useContext } from "react";
+import { connect } from "mongoose";
 
 function InvestorItem(props) {
   const navigate = useNavigate();
@@ -19,6 +21,12 @@ function InvestorItem(props) {
   const {currentUser}=useContext(AuthContext)
   console.log(currentUser);
   const currentuser = auth.currentUser;
+
+  async function Connect(){
+    await updateDoc(doc(db, "investor", props.id), {
+      requests:arrayUnion(currentuser.uid)
+    });
+  }
 
   async function chathandler() {
     const combinedId =
@@ -58,9 +66,9 @@ function InvestorItem(props) {
         <h3 className={classes.content}>{props.name}</h3>
         <div className={classes.actions}>
           <button
-            onClick={chathandler}
+            onClick={Connect}
           >
-            Chat
+            Connect
           </button>
         </div>
       </Card>
