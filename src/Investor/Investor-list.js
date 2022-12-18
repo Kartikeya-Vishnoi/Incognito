@@ -4,7 +4,7 @@ import { useState } from "react";
 import { db } from "../FireBase";
 import InvestorItem from "./InvestorItem";
 import classes from "./Investor-list.module.css";
-
+import Navbar from "../components/Navbar";
 function InvestorList() {
   const [vclist, Setvclist] = useState(null);
   useEffect(() => {
@@ -23,6 +23,7 @@ function InvestorList() {
 
   return (
     <>
+    <Navbar/>
       {vclist == null ? (
         "Loading"
       ) : (
@@ -32,6 +33,7 @@ function InvestorList() {
               id={investor.id}
               name={investor.name}
               image={investor.imgurl}
+              description={investor.CompanyInfo}
             />
           ))}
         </ul>

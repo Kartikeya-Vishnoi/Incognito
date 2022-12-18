@@ -4,6 +4,7 @@ import {signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../FireBase";
 import {useNavigate } from "react-router-dom";
 import { AuthContext } from "../../store/AuthContext";
+import Navbar from "../../components/Navbar"
 
 function InvestorLogIn() {
   const navigate = useNavigate();
@@ -29,8 +30,9 @@ function InvestorLogIn() {
   };
   return (
     <React.Fragment>
-    
-      <form>
+    <Navbar/>
+    <div className={classes.container}>
+      <form >
       <div className={classes.login}>
         <input
           id="email-address"
@@ -51,18 +53,18 @@ function InvestorLogIn() {
         />
 
         <button type="submit" onClick={handleLogin}>
-          Login
+          <div className={classes.lo}>Login</div>
         </button>
-        <p>New User?</p>
+        <p className="nuser">New User?</p>
         </div>
         <div className={classes.signup}>
         <button onClick={() => {navigate("/signup")}}>
-          Sign Up
+          <p>Sign Up</p>
         </button>
         </div>
         {error && <p className={classes.warning}>Wrong Email or Password</p>}
       </form>
-    
+    </div>
     </React.Fragment>
   );
 }

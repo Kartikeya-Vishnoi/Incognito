@@ -5,6 +5,7 @@ import { useRef, useState } from "react";
 import { storage } from "../../FireBase";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { useEffect } from "react";
+import Navbar from "../../components/Navbar"
 // import SignUp from "./SignUp";
 function InvestorForm(props) {
   
@@ -77,7 +78,12 @@ function InvestorForm(props) {
 //   }, [pitch]);
 
   return (
+    <div>
+    <Navbar/>
     <form className={classes.form} onSubmit={OnSubmitHandler}>
+       <h1>Tell us About Yourself !!!</h1>
+      <br></br>
+      <div className={classes.container}>
       <div className={classes.control}>
         <label htmlFor="email">Email</label>
         <input type="email" required id="email" ref={useremail} />
@@ -119,7 +125,9 @@ function InvestorForm(props) {
       <div className={classes.actions}>
         <button>Update Info</button>
       </div>
+      </div>
     </form>
+    </div>
   );
 }
 export default InvestorForm;

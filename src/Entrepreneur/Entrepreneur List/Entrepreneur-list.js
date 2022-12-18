@@ -4,6 +4,7 @@ import { useState } from "react";
 import { db } from "../../FireBase";
 import EntrepreneurItem from "./EntrepreneurItem";
 import classes from "./Entrepreneur-list.module.css";
+import Navbar from "../../components/Navbar";
 
 function EntrepreneurList() {
   const [entlist, Setentlist] = useState(null);
@@ -23,6 +24,7 @@ function EntrepreneurList() {
 
   return (
     <>
+    <Navbar/>
       {entlist == null ? (
         "Loading"
       ) : (

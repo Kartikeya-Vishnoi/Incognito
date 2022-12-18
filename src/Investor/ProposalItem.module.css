@@ -1,46 +1,114 @@
 .item {
-    margin: 1rem 0;
-  }
-  
-  .image {
-    width: 100%;
-    height: 20rem;
-    overflow: hidden;
-    border-top-right-radius: 6px;
-    border-top-left-radius: 6px;
-  }
-  
-  .image img {
-    width: 100%;
-    object-fit: cover;
-  }
-  
-  .content {
-    text-align: center;
-    padding: 1rem;
-  }
-  
-  .content h3 {
-    font-size: 1.25rem;
-    color: #2c292b;
-  }
-  
-  .actions {
-    padding: 1.5rem;
-    text-align: center;
-  }
-  
-  .actions button {
-    font: inherit;
-    cursor: pointer;
-    color: #77002e;
-    border: 1px solid #77002e;
-    background-color: transparent;
-    padding: 0.5rem 1.5rem;
-    border-radius: 4px;
-  }
-  
-  .actions button:hover,
-  .actions button:active {
-    background-color: #ffe2ed;
-  }
+  margin: 1rem 0;
+}
+
+.image {
+  width: 100%;
+  height: 20rem;
+  overflow: hidden;
+  border-top-right-radius: 6px;
+  border-top-left-radius: 6px;
+}
+
+.image img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.content {
+  text-align: center;
+  padding: 1rem;
+}
+
+.content h3 {
+  font-size: 1.25rem;
+  color: #2c292b;
+}
+
+.actions {
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.actions button {
+  font: inherit;
+  cursor: pointer;
+  color: #77002e;
+  border: 1px solid #77002e;
+  background-color: transparent;
+  padding: 0.5rem 1.5rem;
+  border-radius: 4px;
+}
+
+.actions button:hover,
+.actions button:active {
+  background-color: #ffe2ed;
+}
+
+.blue{
+  background-color: #1b4060;
+  padding: 30px;
+
+}
+
+.details{
+margin-left:30px;
+
+/* display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column; */
+}
+
+Card .details h3{
+font-weight: 800px;
+}
+
+li{
+margin-left: 40px;
+}
+
+.item{
+margin-left: 10px;
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+}
+
+.btn{
+background-color: #47b5e4;
+border-style: none;
+padding:10px;
+border-radius: 10px;
+padding-bottom: 3px;
+margin:10px;
+margin-bottom: 0px;
+margin-top: 35px;
+margin-left:250px;
+color: black;
+}
+
+.btns{
+  color: black;
+  text-decoration: none;
+  background-color: #47b5e4;
+border-style: none;
+padding:10px;
+border-radius: 10px;
+padding-bottom: 3px;
+margin:10px;
+margin-bottom: 0px;
+margin-top: 35px;
+margin-left:250px;
+}
+
+.btn:hover{
+
+border : 2px solid black;
+}
+
+.details{
+padding: 10px;
+margin-top: 50px;
+}
