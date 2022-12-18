@@ -13,6 +13,8 @@ function InvestorHome(){
     const[proposal,Setproposal]=useState([""]);
     const navigate=useNavigate()
     const {dispatch}=useContext(AuthContext)
+    const a=getAuth();
+    console.log(a.currentUser.uid)
     function Signout(){
         const auth = getAuth();
         signOut(auth)
@@ -48,6 +50,7 @@ function InvestorHome(){
         fetchdata();
       }, []);
       console.log(proposal)
+
       return(
         <>
         <div className={classes.style}>
