@@ -92,6 +92,7 @@ color: black;
 .btns{
   color: black;
   text-decoration: none;
+  width:160px;
   background-color: #47b5e4;
 border-style: none;
 padding:10px;

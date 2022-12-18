@@ -100,9 +100,9 @@ function ProposalItem(props) {
             <p>STARTUP NAME : {userCompanyInfo}</p>
             <h3>STARTUP INFORMATION : {userStartUpName}</h3>
             {/* <h3>BUISNESS TYPE :   {userBuisnessType}</h3> */}
-            {/* <div className={classes.btns}>
+            <div className={classes.btns}>
             <a href={pitch} >EXPLORE</a>
-            </div> */}
+            </div>
            {/* <button className={classes.btn} onClick={chatHandler}>
            <a href={pitch} >EXPLORE</a>
             </button> */}
