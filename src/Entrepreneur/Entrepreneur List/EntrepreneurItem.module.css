@@ -1,44 +1,72 @@
 .item {
-    margin: 0;
-    display: inline;
-  }
-  
-  .image {
-    width: 50%;
-    display: block;
-    margin: auto;
-    height: 10rem;
-    overflow: hidden;
-    padding-top: 10px;
-    border-radius: 50%;
-  }
-  
-  
-  .content {
-    text-align: center;
-    padding: 1rem;
-  }
-  
-  .content h3 {
-    font-size: 1.25rem;
-    color: #2c292b;
-  }
-  
-  .actions {
-    padding: 1.5rem;
-    text-align: center;
-  }
-  
-  .actions button {
-    font: inherit;
-    cursor: pointer;
-    color: #2b0715;
-    background-color: transparent;
-    padding: 0.5rem 1.5rem;
-    border-radius: 4px;
-  }
-  
-  .actions button:hover,
-  .actions button:active {
-    background-color: #f4f4f4;
-  }
+  margin: 0;
+  display: inline;
+}
+
+.image {
+  width: 50%;
+  display: block;
+  margin: auto;
+  height: 10rem;
+  overflow: hidden;
+  padding-top: 10px;
+  border-radius: 50%;
+  border-radius: 2px solid black;
+}
+
+
+.content {
+  text-align: center;
+  padding: 1rem;
+}
+
+.content h3 {
+  font-size: 1.25rem;
+  color: white
+}
+
+.actions {
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.actions button {
+  font: inherit;
+  cursor: pointer;
+  color: white;
+  background-color: #47b5e4;
+  padding: 0.5rem 1.5rem;
+  border-style: none;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: large;
+  margin: 10px;
+}
+
+.actions button:hover,
+.actions button:active {
+  transform: scale(1.1);
+}
+
+.avatar{
+background-color: #1b4060;
+margin-bottom: 10px;
+padding: 10px;
+padding-bottom: 15px;
+}
+
+Card{
+border-radius: 10px;
+margin:20px;
+padding: 20px;
+}
+
+.details{
+
+margin-top: 10px;
+background-color: white;
+}
+
+.container:hover{
+border: 1px solid black;
+}

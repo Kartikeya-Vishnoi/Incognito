@@ -74,7 +74,7 @@ function InvestorHome(){
   </header>
         <div>
         <h1>
-           Hi {`${username}`} !!
+           Hello {`${username}`}, here are your Proposals!!
         </h1>
         </div>
         <br></br>

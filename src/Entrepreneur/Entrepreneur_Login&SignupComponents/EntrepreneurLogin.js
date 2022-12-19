@@ -4,6 +4,7 @@ import {signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../FireBase";
 import {useNavigate } from "react-router-dom";
 import { AuthContext } from "../../store/AuthContext";
+import Navbar from "../../components/Navbar"
 
 function EntrepreneurLogIn() {
   const navigate = useNavigate();
@@ -20,6 +21,7 @@ function EntrepreneurLogIn() {
         // Signed in
         const user = userCredential.user;
         dispatch({type:"LOGIN", payload:user})
+        
         navigate("/entrepreneurhome")
       })
       .catch((error) => {
@@ -28,7 +30,7 @@ function EntrepreneurLogIn() {
   };
   return (
     <React.Fragment>
-    
+    <Navbar/>
       <form>
       <div className={classes.login}>
         <input

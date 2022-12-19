@@ -1,6 +1,6 @@
 import React from 'react'
 import user1 from './images/user1.jpeg'
-import user2 from './images/user2.jpeg'
+import User2 from './images/User2.jpeg'
 import user3 from './images/user3.jpeg'
 import './Testimonials.css'
 
@@ -18,7 +18,7 @@ const Testimonials = () => {
                         <p>Director of "Financial Times"</p>
                     </div>
                     <div className='card'>
-                        <img src={user2} alt='user1'/>
+                        <img src={User2} alt='user1'/>
                         <p>In just 2 very short meetings with John he managed to find the solution personally catered to my situation and expectations. Punctual, well informed and very reliable.</p>
                         <p><span>Carol Harper</span></p>
                         <p>Director at Risktec Solutions Ltd</p>

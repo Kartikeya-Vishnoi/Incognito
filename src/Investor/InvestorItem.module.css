@@ -1,44 +1,61 @@
 .item {
-    margin: 0;
-    display: inline;
-  }
-  
-  .image {
-    width: 50%;
-    display: block;
-    margin: auto;
-    height: 10rem;
-    overflow: hidden;
-    padding-top: 10px;
-    border-radius: 50%;
-  }
-  
-  
-  .content {
-    text-align: center;
-    padding: 1rem;
-  }
-  
-  .content h3 {
-    font-size: 1.25rem;
-    color: #2c292b;
-  }
-  
-  .actions {
-    padding: 1.5rem;
-    text-align: center;
-  }
-  
-  .actions button {
-    font: inherit;
-    cursor: pointer;
-    color: #2b0715;
-    background-color: transparent;
-    padding: 0.5rem 1.5rem;
-    border-radius: 4px;
-  }
-  
-  .actions button:hover,
-  .actions button:active {
-    background-color: #f4f4f4;
-  }
+  display: inline-grid;
+  column-gap: 50px;
+  border: 4px solid black;
+  color: rgb(3, 3, 68);
+  margin-right: 30px;
+  margin-top: 50px;
+}
+
+.item:hover {
+  color: white;
+  background-color: #1f1a5d;
+}
+
+.img {
+  width: 300px;
+  margin: 23px;
+}
+
+.image {
+  width: 50%;
+  display: block;
+  margin: auto;
+  height: 10rem;
+  overflow: hidden;
+  padding-top: 10px;
+  border-radius: 50%;
+}
+
+.content {
+  text-align: center;
+  font-weight: 700;
+  padding: 1rem;
+}
+
+.description {
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+.actions {
+  padding: 1.5rem;
+  display: flex;
+  color: rgb(3, 3, 68);
+  justify-content: space-between;
+}
+
+.btn {
+  font: inherit;
+  cursor: pointer;
+  padding: 0.5rem 1.5rem;
+  border-radius: 10px;
+  font-weight: 600;
+  border: 3px solid rgb(3, 3, 68);
+}
+
+.btn:hover{
+  color: white;
+  background-color: #1f1a5d;
+  border: 3px solid white;
+}
