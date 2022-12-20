@@ -25,8 +25,9 @@ function ProposalItem(props) {
   const [pitch,Setpitch]=useState();
 
     async function chatHandler() {
+      console.log(id)
       const combinedId =
-        currentuser.uid > props.id
+        currentuser.uid > id
           ? currentuser.uid + id
           : id + currentuser.uid;
 
@@ -78,7 +79,7 @@ function ProposalItem(props) {
         setUserCompanyInfo(name[0].CompanyInfo);
         setUserStartUpName(name[0].StartupName);
         setUserBuisnessType(name[0].userBuisnessType);
-        setUserid(name[0].id);
+        setUserid(name[0].uid);
         Setpitch(name[0].pitchUrl)
       } catch (err) {
         console.log(err);

@@ -71,9 +71,9 @@ function InvestorItem(props) {
         <h3 className={classes.content}>{props.name}</h3>
         <p className={classes.description}>{props.description}</p>
         <div className={classes.actions}>
-          {/* <button className={classes.btn} onClick={Connect} >
+          <button className={classes.btn} onClick={Connect} >
             Connect
-          </button> */}
+          </button>
           <button className={classes.btn} onClick={chathandler}>
             Chat
           </button>
