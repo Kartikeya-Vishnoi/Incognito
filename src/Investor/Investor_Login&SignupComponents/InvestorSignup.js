@@ -8,6 +8,7 @@ import InvestorForm from './InvestorForm';
 function InvestorSignUp(){
 const navigate=useNavigate();
 async function Onsubmithandler(data){
+    
 try{
     const res=await createUserWithEmailAndPassword(auth,data.UserEmail,data.Password);
     await setDoc(doc(db,"investor",res.user.uid),{
@@ -24,7 +25,7 @@ try{
 catch(err){
     console.log(err);
 }
-}    
+}   
     
 return(
     <InvestorForm onadd={Onsubmithandler}/>

@@ -53,11 +53,6 @@
 
 .details{
 margin-left:30px;
-
-/* display: flex;
-justify-content: center;
-align-items: center;
-flex-direction: column; */
 }
 
 Card .details h3{
@@ -90,10 +85,10 @@ color: black;
 }
 
 .btns{
-  color: black;
-  text-decoration: none;
-  width:160px;
-  background-color: #47b5e4;
+color: black;
+text-decoration: none;
+width:160px;
+background-color: #47b5e4;
 border-style: none;
 padding:10px;
 border-radius: 10px;
@@ -105,7 +100,6 @@ margin-left:250px;
 }
 
 .btn:hover{
-
 border : 2px solid black;
 }
 

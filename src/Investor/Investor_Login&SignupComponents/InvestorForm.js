@@ -37,7 +37,8 @@ function InvestorForm(props) {
       Buisnesstype: buisnesstype,
       CompanyInfo: description,
       Password: pass,
-      imgurl:url
+      imgurl:url,
+      requests:"null"
     };
     props.onadd(userdata);
   }
