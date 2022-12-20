@@ -40,12 +40,7 @@ function InvestorHome() {
         });
         console.log(vc);
         setUsername(vc[0].name);
-        // if(vc[0].requests==="null"){
-        //   Setproposal("No requests Yet")
-        // }
-        // else{
         Setproposal(vc[0].requests);
-        // }
 
         console.log(vc[0].requests);
       } catch (err) {
@@ -71,9 +66,6 @@ function InvestorHome() {
               </li>
               <li>Update Profile</li>
               <li onClick={Signout}>LogOut</li>
-              {/* <li onClick={() => {navigate("/events")}}>
-          Event Tracker
-        </li> */}
             </ul>
           </nav>
         </header>
