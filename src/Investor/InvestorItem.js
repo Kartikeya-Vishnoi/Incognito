@@ -15,6 +15,7 @@ import { AuthContext } from "../store/AuthContext";
 import { useContext } from "react";
 import { connect } from "mongoose";
 import Navbar from "../components/Navbar"
+import { ChatContext } from "../store/ChatContext";
 
 function InvestorItem(props) {
   const navigate = useNavigate();
@@ -22,7 +23,8 @@ function InvestorItem(props) {
   const {currentUser}=useContext(AuthContext)
   console.log(currentUser);
   const currentuser = auth.currentUser;
-
+   const { dispatch } = useContext(ChatContext);
+  
   async function Connect(){
     await updateDoc(doc(db, "investor", props.id), {
       requests:arrayUnion(currentuser.uid)
@@ -57,6 +59,8 @@ function InvestorItem(props) {
     } catch (error) {
       console.log(error)
     }
+    dispatch({type:"CHANGE_USER",payload:props})
+    console.log(props.userInfo)
     navigate("/chat")
   }
 

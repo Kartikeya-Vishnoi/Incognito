@@ -16,11 +16,11 @@ function EntrepreneurList() {
         list.push({ ...doc.data() });
       });
       Setentlist(list);
-      console.log(list);
+      // console.log(list);
     });
     return () => listfn();
   }, []);
-  console.log(entlist);
+  // console.log(entlist);
 
   return (
     <>
