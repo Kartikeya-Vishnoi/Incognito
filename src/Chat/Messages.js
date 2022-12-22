@@ -9,7 +9,7 @@ import {db} from "../FireBase"
 function Messages(props){
     const [messages, setMessages] = useState([]);
     const { data } = useContext(ChatContext);
-    
+    console.log(data)
     useEffect(() => {
       const unSub = onSnapshot(doc(db, "chats", data.chatId), (doc) => {
         doc.exists() && setMessages(doc.data().messages);
@@ -20,7 +20,7 @@ function Messages(props){
       };
     }, [data.chatId]);
   
-    console.log(messages)
+    // console.log(messages)
 return(
     <div className="messages">
       {messages.map((m) => (

@@ -11,6 +11,7 @@ import { Timestamp } from "firebase/firestore";
 
   function SendMessage() {
   let message=useRef();
+  
   const[text,setText]=useState()
   const { data } = useContext(ChatContext);
   const auth = getAuth();
@@ -18,6 +19,7 @@ import { Timestamp } from "firebase/firestore";
 
    async function sendmessagehandler(e){
     e.preventDefault()
+    
     await updateDoc(doc(db, "chats", data.chatId), {
       messages: arrayUnion({
         text,
@@ -27,6 +29,7 @@ import { Timestamp } from "firebase/firestore";
     });
     console.log(currentUser.uid)
    }
+   
     return(
         <div className={classes.style}>
         <footer>

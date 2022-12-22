@@ -15,12 +15,14 @@ import { AuthContext } from "../../store/AuthContext";
 import { useContext } from "react";
 import { connect } from "mongoose";
 import Navbar from "../../components/Navbar"
+import { ChatContext } from "../../store/ChatContext";
 
 function EntrepreneurItem(props) {
+  const {dispatch} = useContext(ChatContext)
   const navigate = useNavigate();
   const auth = getAuth();
   const {currentUser}=useContext(AuthContext)
-  console.log(currentUser);
+  // console.log(currentUser);
   const currentuser = auth.currentUser;
 
   async function Connect(){
@@ -34,7 +36,7 @@ function EntrepreneurItem(props) {
       currentuser.uid > props.id
         ? currentuser.uid + props.id
         : props.id + currentuser.uid;
-
+    console.log(combinedId);
     try {
       const res = await getDoc(doc(db, "chats", combinedId));
       if (!res.exists()) {
@@ -57,6 +59,7 @@ function EntrepreneurItem(props) {
     } catch (error) {
       console.log(error)
     }
+    dispatch({type:"CHANGE_USER",payload:props})
     navigate("/chat")
   }
 
