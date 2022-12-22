@@ -15,6 +15,7 @@ import { db } from "../FireBase";
 import Card from "../Event Tracker/ui/Card";
 import classes from "./ProposalItem.module.css";
 import { AuthContext } from "../store/AuthContext";
+import { ChatContext } from "../store/ChatContext";
 
 function ProposalItem(props) {
   const [username, setUsername] = useState(null);
@@ -23,13 +24,15 @@ function ProposalItem(props) {
   const [userBuisnessType, setUserBuisnessType] = useState(null);
   const [id, setUserid] = useState();
   const [pitch,Setpitch]=useState();
+  const {dispatch}=useContext(ChatContext)
 
     async function chatHandler() {
       console.log(id)
+      const obj={id:props.proposal}
       const combinedId =
-        currentuser.uid > id
-          ? currentuser.uid + id
-          : id + currentuser.uid;
+        currentuser.uid > obj.id
+          ? currentuser.uid + obj.id
+          : obj.id + currentuser.uid;
 
       try {
         const res = await getDoc(doc(db, "chats", combinedId));
@@ -38,12 +41,12 @@ function ProposalItem(props) {
 
           await updateDoc(doc(db, "userChats", currentuser.uid), {
             [combinedId + ".userInfo"]: {
-              uid: id,
+              uid: obj.id,
             },
             [combinedId + ".date"]: serverTimestamp(),
           });
 
-          await updateDoc(doc(db, "userChats", id), {
+          await updateDoc(doc(db, "userChats", obj.id), {
             [combinedId + ".userInfo"]: {
               uid: currentuser.uid,
             },
@@ -53,6 +56,7 @@ function ProposalItem(props) {
       } catch (error) {
         console.log(error);
       }
+      dispatch({type:"CHANGE_USER",payload:obj})
       navigate("/chat");
     }
   
@@ -118,57 +122,3 @@ function ProposalItem(props) {
 }
 
 export default ProposalItem;
-
-// import React, { useEffect, useState, useContext } from "react";
-// import { collection, getDocs } from "firebase/firestore";
-// import { useNavigate } from "react-router-dom";
-// import { getAuth, signOut } from "firebase/auth";
-// import { db } from "../FireBase";
-// import Card from "../Event Tracker/ui/Card";
-// import classes from "./ProposalItem.module.css"
-// import { AuthContext } from "../store/AuthContext";
-
-// function ProposalItem(props){
-//     const[username,setUsername]=useState(null);
-
-//     const navigate=useNavigate();
-//     let users = [];
-//     useEffect(() => {
-//       const fetchdata = async () => {
-//         let list = [];
-//         try {
-//           const querySnapshot = await getDocs(collection(db, "users"));
-//           querySnapshot.forEach((doc) => {
-//             list.push(doc.data());
-//           });
-//           users = list;
-//           const auth = getAuth();
-//           //const user = auth.currentUser;
-//           const name = users.filter(function (el) {
-//             return el.uid === props.proposal;
-//           });
-
-//           setUsername(name[0].Name);
-//         } catch (err) {
-//           console.log(err);
-//         }
-//       };
-//       fetchdata();
-//     }, []);
-//     console.log(username);
-// console.log(props.proposal)
-// return(
-// <li className={classes.item}>
-//     {
-//      username===null?
-//      "":
-//     <Card>
-//     <h3>
-//     {username}</h3>
-//     </Card>
-//     }
-//     </li>
-// )
-// }
-
-// export default ProposalItem

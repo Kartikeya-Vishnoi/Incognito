@@ -10,6 +10,7 @@ import classes from "./InvestorHome.module.css";
 function InvestorHome() {
   const [username, setUsername] = useState();
   const [proposal, Setproposal] = useState([""]);
+  const [List,setList]=useState();
   const navigate = useNavigate();
   const { dispatch } = useContext(AuthContext);
   const a = getAuth();
@@ -39,14 +40,14 @@ function InvestorHome() {
           return el.id === user.uid;
         });
         console.log(vc);
+        //setList(vc);
         setUsername(vc[0].name);
         Setproposal(vc[0].requests);
-
         console.log(vc[0].requests);
       } catch (err) {
         console.log(err);
       }
-    };
+    }; 
     fetchdata();
   }, []);
   console.log(proposal);
