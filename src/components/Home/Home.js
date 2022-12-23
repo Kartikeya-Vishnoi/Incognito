@@ -11,10 +11,10 @@ import Slider  from "../Slider";
 function Home() {
   return (
     <>
-   <Navbar />
+   {/* <Navbar /> */}
    <Hero />
-   <Slider/>
-   <Testimonials/>
+   {/* <Slider/>
+   <Testimonials/> */}
    {/* <Demo /> */}
    <Footer />
     </>
