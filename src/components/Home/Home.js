@@ -6,18 +6,14 @@ import Testimonials from "../Testimonials";
 import Demo from "../Demo";
 import Footer from "../Footer";
 import Slider  from "../Slider";
-
+import classes from "./Home.module.css"
 
 function Home() {
   return (
-    <>
-   {/* <Navbar /> */}
+    <div className={classes.home}>
    <Hero />
-   {/* <Slider/>
-   <Testimonials/> */}
-   {/* <Demo /> */}
    <Footer />
-    </>
+    </div>
   );
 }
 
