@@ -10,8 +10,8 @@ const Hero = () => {
             <div className={classes.header}>
             <ul>
                 <li>About Us</li>
-                <li onClick={() => {navigate("./login")}}>SignUp</li>
-                <li onClick={() => {navigate("./who_r_u")}}>Login</li>
+                <li onClick={() => {navigate("./login")}}>Login</li>
+                <li onClick={() => {navigate("./who_r_u")}}>SignUp</li>
             </ul>
             </div>
             <div className={classes.box}>
