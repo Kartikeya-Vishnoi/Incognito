@@ -47,6 +47,7 @@
 .socialmedia {
     display: flex;
     margin-top: 20px;
+    margin-left: 30vw;
 }
 
 .socialmedia li {
@@ -106,14 +107,18 @@
 
 .quicklinks li a:hover {
     text-decoration: underline;
+    padding-left: 0;
 }
 
 .contactus {
     width: 350px;
-    margin-right: 10px;
+    margin-right: 40px;
     padding-right: 40px;
-    margin-left: 0;
-    
+}
+
+.contactus ul{
+    margin-right: 0;
+
 }
 
 .contactus h2 {
